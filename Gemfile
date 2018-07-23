@@ -12,6 +12,8 @@ gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'rails_real_favicon'
+gem 'bootstrap', '~> 4.1.2'
+gem 'jquery-rails'
 # gem 'mini_racer', platforms: :ruby
 # gem 'redis', '~> 4.0'
 # gem 'bcrypt', '~> 3.1.7'
