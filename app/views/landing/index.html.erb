@@ -1,23 +1,25 @@
 <% title "Temporary Landing Page" %>
 
-<center>
-  <h1 class="header">Something new is coming to a browser near you!</h3>
-</center>
-<center>
-  <p>We're under construction! We apologize for any difficulties this may cause you, but we're sure you're going to love whats coming!</p>
-</center>
+<body class="landing">
+  <center>
+    <h1 class="header">Something new is coming to a browser near you!</h3>
+  </center>
+  <center>
+    <p>We're under construction! We apologize for any difficulties this may cause you, but we're sure you're going to love whats coming!</p>
+  </center>
 
-<center>
-  <br />
-  <%= image_tag("AWBA-Black.png", :class => 'awba-landing-logo') %>
-  <br />
-</center>
-
-<center>
-  <p>
-    How to contact us in the meantime:
+  <center>
     <br />
-    Email us at: <%= mail_to "empower@airdriewomen.ca" %>
-  </p>
+    <%= image_tag("AWBA-Black.png", :class => 'awba-landing-logo') %>
+    <br />
+  </center>
 
-</center>
+  <center>
+    <p>
+      How to contact us in the meantime:
+      <br />
+      Email us at: <%= mail_to "empower@airdriewomen.ca" %>
+    </p>
+
+  </center>
+</body>
