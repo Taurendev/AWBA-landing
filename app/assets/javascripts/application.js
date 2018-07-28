@@ -16,4 +16,14 @@
 //= require turbolinks
 //= require popper
 //= require bootstrap-sprockets
+//= require Chart.bundle
+//= require chartkick
 //= require_tree .
+
+
+// AutoClose Boostrap Alerts
+window.setTimeout(function() {
+    $(".alert").fadeTo(500, 0).slideUp(500, function(){
+        $(this).remove();
+    });
+}, 4000);

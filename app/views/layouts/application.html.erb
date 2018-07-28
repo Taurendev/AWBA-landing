@@ -9,11 +9,35 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
+    <!-- ChartKick Loader -->
+    <%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
+
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Cardo:400,700|Oswald" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-TXfwrfuHVznxCssTxWoPZjhcss/hp38gEOH8UPZG/JcXonvBQ6SlsIF49wUzsGno" crossorigin="anonymous">
   </head>
+
+  <header>
+
+  </header>
+  <% if user_signed_in? %>
+    <%= render partial: 'public/signed_in_nav' %>
+  <% else %>
+    <%= render partial: 'public/public_nav' %>
+  <% end %>
+
+  <div class="col-md-6 offset-md-3">
+    <%= render partial: 'public/flash', flash: flash %>
+  </div>
+
 
   <body>
     <%= yield %>
   </body>
+
+  <footer>
+
+  </footer>
 </html>

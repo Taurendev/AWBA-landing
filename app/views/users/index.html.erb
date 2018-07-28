@@ -1,0 +1,61 @@
+<% title "Member Directory" %>
+
+<div class="container-fluid">
+
+  <div class="col-md-6 offset-3">
+    <div class="heading-box">
+      <h1 class="user-heading">awba membership directory</h1>
+    </div>
+  </div>
+
+  <div class="search-box">
+    <div class="row">
+      <div class="col-lg-6 offset-lg-3">
+        <%= search_form_for @q do |f| %>
+          <div class="input-group-append">
+            <%= f.search_field :f_name_or_l_name_or_email_or_business_name_cont, :class => 'form-control', :placeholder => 'Search by First or Last Name, Email or Company Name' %>
+            <%= f.submit :class=> "btn btn-success" %>
+            <%= link_to "Reset Form", users_path, :class => "btn btn-danger" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6 offset-md-3">
+    <center><%= link_to "Export membership as Excel spreadsheet", users_path(format: "xlsx"), :class => 'btn btn-success export-btn' %></center>
+  </div>
+
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col"><center><%= sort_link(@q, :email, 'Email', default_order: :asc) %></center></th>
+        <th scope="col"><center><%= sort_link(@q, :f_name, 'First Name', default_order: :asc) %></center></th>
+        <th scope="col"><center><%= sort_link(@q, :l_name, 'Last Name', default_order: :asc) %></center></th>
+        <th scope="col"><center><%= sort_link(@q, :business_name, 'Company', default_order: :asc) %></center></th>
+        <th scope="col"><center><%= sort_link(@q, :account_status, 'Membership Status', default_order: :asc) %></center></th>
+        <th scope="col"><center>Member For</center></th>
+        <th colspan="3"><center>Admin</center></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @users.each do |user| %>
+      <tr>
+        <td scope="col"><center><%= user.email %></center></td>
+        <td scope="col"><center><%= user.f_name.capitalize %></center></td>
+        <td scope="col"><center><%= user.l_name.capitalize %></center></td>
+        <td scope="col"><center><%= user.business_name %></center></td>
+        <td scope="col"><center><%= user.account_status %></center></td>
+        <td scope="col"><center><%= time_ago_in_words(user.member_since) %></center></td>
+        <td scope="col"><%= link_to "View", root_path, :class => 'btn btn-primary btn-sm tbl-btn' %></td>
+        <td scope="col"><%= link_to "Edit", root_path, :class => 'btn btn-warning btn-sm tbl-btn' %></td>
+        <td scope="col"><%= link_to "Archive", root_path, :class => 'btn btn-danger btn-sm tbl-btn' %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <%= will_paginate(@users, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
+
+</div>

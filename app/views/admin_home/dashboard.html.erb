@@ -1,0 +1,45 @@
+<% title "Admin Dashboard" %>
+
+<div class="container-fluid">
+
+    <div class="col-md-6 offset-3">
+      <div class="heading-box">
+        <h1 class="user-heading">awba admin dashboard</h1>
+      </div>
+    </div>
+
+    <div class="row row-eq-height dashboard-row">
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><center>New App Users By Day</center></h5>
+            <%= line_chart User.group_by_day(:member_since).count, id: "users-chart", width: "auto", height: "300px", min: 0, max: 15, ytitle: "New Members", refresh: 60, label: "New Users" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-8">
+        <div class="card dashboard-table-card">
+          <div class="card-body">
+            <h5 class="card-title"><center>New App Users - last 24 hours</center></h5>
+
+            <h3 class="placeholder-text">Coming Soon <i class="fas fa-spinner fa-spin"></i></h3>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row row-eq-height">
+      <div class="col-md-12">
+        <div class="card dashboard-event-card">
+          <div class="card-body">
+            <div class="card-title">
+              <center><h5>Upcoming Events</h5></center>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+</div>

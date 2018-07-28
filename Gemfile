@@ -14,6 +14,17 @@ gem 'jbuilder', '~> 2.5'
 gem 'rails_real_favicon'
 gem 'bootstrap', '~> 4.1.2'
 gem 'jquery-rails'
+gem 'devise'
+gem 'devise_invitable'
+gem 'rubyzip', '>= 1.2.1'
+gem 'axlsx', git: 'https://github.com/randym/axlsx.git', ref: 'c8ac844'
+gem 'axlsx_rails'
+gem 'chartkick', '~> 2.3', '>= 2.3.5'
+gem 'groupdate', '~> 4.0', '>= 4.0.1'
+gem 'ransack', github: 'activerecord-hackery/ransack'
+gem 'will_paginate', '~> 3.1.0'
+gem 'bootstrap-will_paginate'
+gem "simple_calendar", "~> 2.0"
 # gem 'mini_racer', platforms: :ruby
 # gem 'redis', '~> 4.0'
 # gem 'bcrypt', '~> 3.1.7'
@@ -31,6 +42,7 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem "letter_opener"
 end
 
 group :test do

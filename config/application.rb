@@ -2,6 +2,9 @@ require_relative 'boot'
 
 require 'rails/all'
 
+require 'action_view'
+require 'action_view/helpers'
+include ActionView::Helpers::DateHelper
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
@@ -17,5 +20,7 @@ module AWBALp
     # the framework and any gems in your application.
 
     config.assets.paths << Rails.root.join("app", "assets", "fonts")
+
+    config.time_zone = "Mountain Time (US & Canada)"
   end
 end
