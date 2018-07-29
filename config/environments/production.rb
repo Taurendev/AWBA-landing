@@ -16,7 +16,7 @@ Rails.application.configure do
 
   # Ensures that a master key has been made available in either ENV["RAILS_MASTER_KEY"]
   # or in config/master.key. This key is used to decrypt credentials (and other encrypted files).
-  # config.require_master_key = true
+  config.require_master_key = true
 
   # Disable serving static files from the `/public` folder by default since
   # Apache or NGINX already handles this.
@@ -94,19 +94,18 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { :host => 'airdriewomen.ca' }
 
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.perform_deliveries = true
+    config.action_mailer.raise_delivery_errors = true
+    config.action_mailer.default :charset => "utf-8"
 
-  #These settings are for the sending out email for active admin and consequently the   devise mailer
-  ActionMailer::Base.delivery_method = :smtp
-  ActionMailer::Base.perform_deliveries = true
-  ActionMailer::Base.raise_delivery_errors = false
-  ActionMailer::Base.smtp_settings =
-  {
-
-    :address            => 'mail.airdriewomen.ca',
-    :port               => 465,
-    :domain             => 'airdriewomen.ca', #you can also use google.com
-    :authentication     => :plain,
-    :user_name          => 'webmaster@airdriewomen.ca',
-    :password           => 'XXXXXXX'
-  }
+    config.action_mailer.smtp_settings = {
+      address: "smtp.gmail.com",
+      port: 587,
+      domain: "gmail.com",
+      authentication: "plain",
+      user_name: Rails.application.credentials.gmail[:user_name],
+      password: Rails.application.credentials.gmail[:password],
+      enable_starttls_auto: true
+    }
 end
